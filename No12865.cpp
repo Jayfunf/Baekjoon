@@ -22,4 +22,4 @@ int main() {
 	memset(dp, -1, sizeof(dp));
 	F(i, N)for (int j = 0; j < 2; j++)cin >> arr[i][j];
 	cout << dfs(0, K) << endl;
-}
+}4 7
