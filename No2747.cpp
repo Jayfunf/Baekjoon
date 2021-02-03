@@ -12,7 +12,6 @@ int solve(int N){
 	if (dp[N] != -1) return dp[N];
 	return dp[N] = solve(N - 1) + solve(N - 2);
 }
-
 int main(void) {
 	int N;
 	scanf("%d", &N);
