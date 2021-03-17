@@ -48,7 +48,7 @@ void solve() {
     for (int i = 0; i < ret.size(); i++) {
         cout << ret[i] << " ";
     }
- //¼½½º
+
 }
  
 int main() {
