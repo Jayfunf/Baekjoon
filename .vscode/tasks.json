@@ -5,8 +5,7 @@
     "echoCommand": true,
     "presentation" : { "reveal": "always" },
     "tasks": [
-          //C++ 컴파일
-          {
+        {
             "label": "save and compile for C++",
             "command": "g++",
             "args": [
@@ -15,19 +14,16 @@
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
-            "group": "build",
- 
-            //컴파일시 에러를 편집기에 반영
-            //참고:   https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher
- 
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
             "problemMatcher": {
                 "fileLocation": [
                     "relative",
                     "${workspaceRoot}"
                 ],
                 "pattern": {
-                    // The regular expression. 
-                   //Example to match: helloWorld.c:5:3: warning: implicit declaration of function 'prinft'
                     "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
                     "file": 1,
                     "line": 2,
@@ -37,7 +33,6 @@
                 }
             }
         },
-        //C 컴파일
         {
             "label": "save and compile for C",
             "command": "gcc",
@@ -48,18 +43,12 @@
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
             "group": "build",
- 
-            //컴파일시 에러를 편집기에 반영
-            //참고:   https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher
- 
             "problemMatcher": {
                 "fileLocation": [
                     "relative",
                     "${workspaceRoot}"
                 ],
                 "pattern": {
-                    // The regular expression. 
-                   //Example to match: helloWorld.c:5:3: warning: implicit declaration of function 'prinft'
                     "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
                     "file": 1,
                     "line": 2,
@@ -69,17 +58,73 @@
                 }
             }
         },
-    
-        
-        // // 바이너리 실행(Windows)
         {
-             "label": "execute",
+            "label": "execute",
             "command": "cmd",
-         "group": "test",
+            "group": "test",
             "args": [
-                "/C", "${fileDirname}\\${fileBasenameNoExtension}"
-             ]
-    
+                "/C",
+                "${fileDirname}\\${fileBasenameNoExtension}"
+            ]
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: cpp.exe 활성 파일 빌드",
+            "command": "D:\\MinGW\\bin\\cpp.exe",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "컴파일러: D:\\MinGW\\bin\\cpp.exe"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: gcc.exe 활성 파일 빌드",
+            "command": "D:\\MinGW\\bin\\gcc.exe",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "컴파일러: D:\\MinGW\\bin\\gcc.exe"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: cl.exe 활성 파일 빌드",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "/nologo",
+                "/Fe:",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": "build",
+            "detail": "컴파일러: cl.exe"
         }
     ]
  }

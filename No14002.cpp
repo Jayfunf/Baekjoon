@@ -15,7 +15,6 @@ void solve() {
     cin >> temp;
     A.push_back(temp);
     Arr.push_back({ 0, temp });
- 
     for (int i = 1; i < N; i++) {
         cin >> temp;
         
@@ -49,7 +48,7 @@ void solve() {
     for (int i = 0; i < ret.size(); i++) {
         cout << ret[i] << " ";
     }
- 
+ //¼½½º
 }
  
 int main() {

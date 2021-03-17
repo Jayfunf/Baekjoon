@@ -12,7 +12,7 @@ int main(){
         a%=10; res = 1;
         b = (b+3)%4+1;
         while(b--) res*=a;
-        res = (res+9)%10+1;
+        res = (res+9)%10+1; //Euler's totient
         cout << res << endl;
     }
     return 0;
